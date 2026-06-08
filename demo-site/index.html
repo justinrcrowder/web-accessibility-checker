@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AccessiCorp — Home</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #222; }
+    nav a { margin-right: 16px; color: #005fcc; }
+    h1 { font-size: 2rem; }
+    .badge { display: inline-block; background: #d4edda; color: #155724; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="missing-meta.html">Missing Meta</a>
+    <a href="images.html">Images</a>
+    <a href="forms.html">Forms</a>
+    <a href="links-buttons.html">Links &amp; Buttons</a>
+    <a href="headings.html">Headings</a>
+  </nav>
+
+  <h1>Welcome to AccessiCorp</h1>
+  <p class="badge">✓ This page passes all accessibility checks</p>
+
+  <p>This is the demo site for the <strong>wcag-audit</strong> tool. Every other page in this site contains deliberate accessibility issues so you can see what the tool catches.</p>
+
+  <h2>What this site demonstrates</h2>
+  <ul>
+    <li><a href="missing-meta.html">Missing Meta</a> — no page title, no language declaration</li>
+    <li><a href="images.html">Images</a> — images without alt text</li>
+    <li><a href="forms.html">Forms</a> — inputs with no labels</li>
+    <li><a href="links-buttons.html">Links &amp; Buttons</a> — empty links and buttons</li>
+    <li><a href="headings.html">Headings</a> — skipped heading levels and multiple h1s</li>
+  </ul>
+
+  <h2>How to audit this site</h2>
+  <p>Run the following command from the project root:</p>
+  <pre><code>cargo run -- --file demo-urls.txt</code></pre>
+</body>
+</html>

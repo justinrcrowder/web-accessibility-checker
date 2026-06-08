@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AccessiCorp — Forms Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #222; }
+    nav a { margin-right: 16px; color: #005fcc; }
+    .issue { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+    form { background: #f8f9fa; padding: 24px; border-radius: 6px; margin: 24px 0; }
+    input, select, textarea { display: block; width: 100%; padding: 8px; margin: 8px 0 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    button { padding: 10px 20px; background: #005fcc; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    label { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="missing-meta.html">Missing Meta</a>
+    <a href="images.html">Images</a>
+    <a href="forms.html">Forms</a>
+    <a href="links-buttons.html">Links &amp; Buttons</a>
+    <a href="headings.html">Headings</a>
+  </nav>
+
+  <h1>Forms — Demo Page</h1>
+
+  <div class="issue">⚠ This form contains inputs with no associated <code>&lt;label&gt;</code>, <code>aria-label</code>, or <code>aria-labelledby</code>.</div>
+
+  <p>When a screen reader focuses an unlabelled input, it announces "edit text" or "text field" with no context. The user has no idea what to type.</p>
+
+  <h2>Broken form (no labels)</h2>
+  <form>
+    <!-- Placeholders are not a substitute for labels -->
+    <input type="text" placeholder="First name" />
+    <input type="text" placeholder="Last name" />
+    <input type="email" placeholder="Email address" />
+    <input type="password" placeholder="Password" />
+    <button type="submit">Sign up</button>
+  </form>
+
+  <h2>How to fix it</h2>
+  <pre><code>&lt;label for="email"&gt;Email address&lt;/label&gt;
+&lt;input id="email" type="email" /&gt;
+
+&lt;!-- Or with aria-label --&gt;
+&lt;input type="email" aria-label="Email address" /&gt;</code></pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form method="post" action="{{ url_for('index') }}" class="audit-form">
+    <label for="urls">URLs to audit (one per line)</label>
+    <p class="hint">Lines starting with <code>#</code> are ignored. Up to 20 URLs.
+       A scheme is added automatically if you omit it.</p>
+    <textarea id="urls" name="urls" rows="6"
+              placeholder="https://example.com&#10;https://mozilla.org">{{ raw or "" }}</textarea>
+
+    {% if error %}
+      <p class="form-error" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <div class="actions">
+      <button type="submit">Audit pages</button>
+    </div>
+  </form>
+
+  <section class="demo-note">
+    <h2>Try the demo site</h2>
+    <p>A bundled demo site has one clean page and five pages that each
+       demonstrate a category of issue. Audit them all by pasting these in:</p>
+    <pre><code>{% for u in demo_urls %}{{ u }}
+{% endfor %}</code></pre>
+    <p><a href="{{ url_for('demo') }}">Open the demo site &rarr;</a></p>
+  </section>
+{% endblock %}

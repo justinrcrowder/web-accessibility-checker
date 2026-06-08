@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #222; }
+    nav a { margin-right: 16px; color: #005fcc; }
+    .issue { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="missing-meta.html">Missing Meta</a>
+    <a href="images.html">Images</a>
+    <a href="forms.html">Forms</a>
+    <a href="links-buttons.html">Links &amp; Buttons</a>
+    <a href="headings.html">Headings</a>
+  </nav>
+
+  <h1>Missing Meta — Demo Page</h1>
+
+  <div class="issue">⚠ This page is missing a <code>&lt;title&gt;</code> tag in the <code>&lt;head&gt;</code>.</div>
+  <div class="issue">⚠ The <code>&lt;html&gt;</code> element has no <code>lang</code> attribute.</div>
+
+  <p>Screen readers announce the page title as soon as a page loads — without it, users have no idea where they are. The <code>lang</code> attribute tells assistive technology which language to use for pronunciation.</p>
+
+  <h2>What's wrong here</h2>
+  <ul>
+    <li>No <code>&lt;title&gt;</code> inside <code>&lt;head&gt;</code></li>
+    <li>No <code>lang="en"</code> on <code>&lt;html&gt;</code></li>
+  </ul>
+
+  <h2>How to fix it</h2>
+  <pre><code>&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Page Title Here&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+</body>
+</html>

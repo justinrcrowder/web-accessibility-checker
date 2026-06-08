@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AccessiCorp — Links &amp; Buttons Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #222; }
+    nav a { margin-right: 16px; color: #005fcc; }
+    .issue { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+    .demo-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0; }
+    button { padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+    .icon-btn { background: #f0f0f0; border: 1px solid #ccc; font-size: 1.2rem; }
+    a { color: #005fcc; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="missing-meta.html">Missing Meta</a>
+    <a href="images.html">Images</a>
+    <a href="forms.html">Forms</a>
+    <a href="links-buttons.html">Links &amp; Buttons</a>
+    <a href="headings.html">Headings</a>
+  </nav>
+
+  <h1>Links &amp; Buttons — Demo Page</h1>
+
+  <div class="issue">⚠ This page contains links with no readable text and buttons with no labels.</div>
+
+  <p>When a screen reader encounters an empty link it announces "link" with nothing else. The user has no idea where it goes. Same goes for icon-only buttons with no <code>aria-label</code>.</p>
+
+  <h2>Empty links</h2>
+  <div class="demo-row">
+    <!-- Empty anchor tags — no text, no aria-label, no title -->
+    <a href="#"></a>
+    <a href="#"></a>
+    <!-- This one is fine -->
+    <a href="#">Read our privacy policy</a>
+  </div>
+
+  <h2>Icon buttons with no label</h2>
+  <div class="demo-row">
+    <!-- No aria-label — screen reader just says "button" -->
+    <button class="icon-btn">🔍</button>
+    <button class="icon-btn">✕</button>
+    <button class="icon-btn">☰</button>
+    <!-- This one is correct -->
+    <button class="icon-btn" aria-label="Open search">🔍 Search</button>
+  </div>
+
+  <h2>How to fix it</h2>
+  <pre><code>&lt;!-- Descriptive link text --&gt;
+&lt;a href="/privacy"&gt;Read our privacy policy&lt;/a&gt;
+
+&lt;!-- Icon button with aria-label --&gt;
+&lt;button aria-label="Close dialog"&gt;✕&lt;/button&gt;</code></pre>
+</body>
+</html>

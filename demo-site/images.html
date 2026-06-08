@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AccessiCorp — Images Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #222; }
+    nav a { margin-right: 16px; color: #005fcc; }
+    .issue { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+    .gallery { display: flex; gap: 16px; flex-wrap: wrap; margin: 24px 0; }
+    .gallery img { width: 180px; height: 120px; object-fit: cover; background: #ccc; border: 1px solid #aaa; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="missing-meta.html">Missing Meta</a>
+    <a href="images.html">Images</a>
+    <a href="forms.html">Forms</a>
+    <a href="links-buttons.html">Links &amp; Buttons</a>
+    <a href="headings.html">Headings</a>
+  </nav>
+
+  <h1>Images — Demo Page</h1>
+
+  <div class="issue">⚠ Three of the four images below are missing <code>alt</code> attributes entirely.</div>
+
+  <p>Screen readers skip over images with no <code>alt</code> attribute, leaving users with no idea what the image shows. Even decorative images should include <code>alt=""</code> so the screen reader knows to ignore them intentionally.</p>
+
+  <h2>Image gallery</h2>
+  <div class="gallery">
+    <!-- No alt attributes — the tool should catch these -->
+    <img src="https://placehold.co/180x120/6c757d/fff?text=Image+1" />
+    <img src="https://placehold.co/180x120/343a40/fff?text=Image+2" />
+    <img src="https://placehold.co/180x120/495057/fff?text=Image+3" />
+    <!-- This one is correct -->
+    <img src="https://placehold.co/180x120/28a745/fff?text=Image+4" alt="A green placeholder image showing correct alt usage" />
+  </div>
+
+  <h2>How to fix it</h2>
+  <pre><code>&lt;!-- Informative image --&gt;
+&lt;img src="chart.png" alt="Bar chart showing Q3 revenue up 20%" /&gt;
+
+&lt;!-- Decorative image --&gt;
+&lt;img src="divider.png" alt="" /&gt;</code></pre>
+</body>
+</html>

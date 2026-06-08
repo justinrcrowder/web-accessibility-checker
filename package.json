@@ -1,0 +1,17 @@
+{
+  "name": "python-a11y",
+  "private": true,
+  "description": "Cloudflare Worker that fronts the Flask WCAG auditor container",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "^0.0.18"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250501.0",
+    "typescript": "^5.5.0",
+    "wrangler": "^4.20.0"
+  }
+}

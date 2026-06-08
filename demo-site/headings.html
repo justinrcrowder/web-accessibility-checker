@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AccessiCorp — Headings Demo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #222; }
+    nav a { margin-right: 16px; color: #005fcc; }
+    .issue { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+    .heading-tree { background: #f8f9fa; padding: 16px 24px; border-radius: 6px; font-family: monospace; line-height: 2; }
+    .bad { color: #c0392b; }
+    .good { color: #27ae60; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="missing-meta.html">Missing Meta</a>
+    <a href="images.html">Images</a>
+    <a href="forms.html">Forms</a>
+    <a href="links-buttons.html">Links &amp; Buttons</a>
+    <a href="headings.html">Headings</a>
+  </nav>
+
+  <h1>Headings — Demo Page</h1>
+
+  <div class="issue">⚠ This page skips from h2 directly to h4, and has a second h1.</div>
+
+  <p>Screen reader users navigate pages by jumping between headings — it acts like a table of contents. Skipping levels (e.g. h2 → h4) and having multiple h1s breaks that structure.</p>
+
+  <h2>Heading structure on this page</h2>
+  <div class="heading-tree">
+    <span class="good">h1 — Headings Demo Page ✓</span><br/>
+    <span class="good">&nbsp;&nbsp;h2 — Heading structure on this page ✓</span><br/>
+    <span class="bad">&nbsp;&nbsp;&nbsp;&nbsp;h4 — Skipped h3 entirely ✗</span><br/>
+    <span class="bad">h1 — Second h1 (should never happen) ✗</span>
+  </div>
+
+  <!-- Deliberate accessibility issues below -->
+  <h4>Skipped h3 entirely</h4>
+  <p>Notice how this jumped from h2 straight to h4. The tool will flag this as a skipped heading level.</p>
+
+  <h1>Second h1 — this should not exist</h1>
+  <p>Each page should have exactly one h1 identifying its main topic. A second h1 confuses the document outline for both screen readers and search engines.</p>
+
+  <h2>How to fix it</h2>
+  <pre><code>&lt;!-- Keep levels sequential --&gt;
+&lt;h1&gt;Page title&lt;/h1&gt;
+  &lt;h2&gt;Section&lt;/h2&gt;
+    &lt;h3&gt;Subsection&lt;/h3&gt;   &lt;!-- don't skip to h4 --&gt;</code></pre>
+</body>
+</html>

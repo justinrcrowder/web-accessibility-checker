@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Audit results — WCAG Accessibility Auditor{% endblock %}
+
+{% block content %}
+  <section class="summary" aria-label="Audit summary">
+    <h1>Audit results</h1>
+    <p class="summary-line">
+      <strong>{{ total }}</strong> site(s) checked —
+      <span class="tag pass">{{ passed }} passed</span>
+      <span class="tag fail">{{ failed }} had issues</span>
+      <span class="tag error">{{ errored }} could not be fetched</span>
+    </p>
+  </section>
+
+  {% for r in results %}
+    <article class="result {% if not r.ok %}result-error{% elif r.issues %}result-fail{% else %}result-pass{% endif %}">
+      <h2 class="result-url">{{ r.url }}</h2>
+
+      {% if not r.ok %}
+        <p class="result-status error">Could not fetch this page: {{ r.error }}</p>
+      {% elif not r.issues %}
+        <p class="result-status pass">No issues found — great job!</p>
+      {% else %}
+        <p class="result-status fail">Found {{ r.issues | length }} issue(s):</p>
+        <ol class="issues">
+          {% for issue in r.issues %}
+            <li>
+              <span class="rule">{{ issue.rule }}</span>
+              <span class="detail">{{ issue.detail }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+    </article>
+  {% endfor %}
+
+  <p class="back"><a href="{{ url_for('index') }}">&larr; Audit more pages</a></p>
+{% endblock %}

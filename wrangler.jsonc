@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "python-a11y",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-01",
+  "observability": {
+    "enabled": true
+  },
+  // The Flask app runs inside this container, built from ./Dockerfile.
+  "containers": [
+    {
+      "class_name": "AuditorContainer",
+      "image": "./Dockerfile",
+      "max_instances": 3
+    }
+  ],
+  // Containers are fronted by a Durable Object of the same class.
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "AUDITOR",
+        "class_name": "AuditorContainer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["AuditorContainer"]
+    }
+  ]
+}

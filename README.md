@@ -1,4 +1,4 @@
-# python-a11y
+# web-accessibility-checker
 
 A Flask web app that checks webpages for common accessibility issues based on
 WCAG 2.1 guidelines. This is a Python/web reimplementation of the original Rust

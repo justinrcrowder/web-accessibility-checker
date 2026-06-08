@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{% block title %}WCAG Accessibility Auditor{% endblock %}</title>
+  <title>{% block title %}Web Accessibility Checker{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
   <header>
-    <a class="brand" href="{{ url_for('index') }}">WCAG Auditor</a>
+    <a class="brand" href="{{ url_for('index') }}">Web Accessibility Checker</a>
     <p class="tagline">Check any webpage for common WCAG 2.1 accessibility issues.</p>
   </header>
   <main>
